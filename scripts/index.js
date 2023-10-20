@@ -47,6 +47,36 @@ function indexRandom(list){
     return Math.floor(Math.random() * list.length);
 }
 
+function checkType(type){
+    let card;
+    switch(type){
+        case "Earth":
+            card = document.getElementById("card");
+            card.style.backgroundColor = "brown";
+            console.log(card);
+            break;
+        case "Fire":
+            card = document.getElementById("card");
+            card.style.backgroundColor = "orange";
+            break;
+        case "Plant":
+            card = document.getElementById("card");
+            card.style.backgroundColor = "green";
+            break;
+        case "Thunder":
+            card = document.getElementById("card");
+            card.style.backgroundColor = "yellow";
+            break;
+        case "Water":
+            card = document.getElementById("card");
+            card.style.backgroundColor = "blue";
+            break;
+        default:
+            card = document.getElementById("card");
+            card.style.backgroundColor = "gray";
+    }
+}
+
 function showPokemonSelected(list){
     let pokemon = list[indexRandom(list)];
     
@@ -58,6 +88,8 @@ function showPokemonSelected(list){
     image.style.animationDirection = "right";
     image.setAttribute("src", pokemon.image);
     setTimeout(() => {image.style.animationName = ""}, 1000);
+    
+    checkType(pokemon.type);
     
     document.getElementById("type").innerHTML = pokemon.type;
     document.getElementById("health").innerHTML = pokemon.hp;
